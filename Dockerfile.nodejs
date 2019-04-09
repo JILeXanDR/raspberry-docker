@@ -1,0 +1,10 @@
+FROM arm32v7/node:11.13.0-stretch
+
+COPY gui/ /usr/gui
+
+WORKDIR /usr/gui
+
+RUN apt-get install libnss3-dev
+RUN npm install
+
+CMD [ "npm", "start" ]

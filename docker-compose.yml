@@ -1,0 +1,25 @@
+version: "3"
+services:
+  golang:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+  #pgadmin:
+  #  image: dpage/pgadmin4:latest
+  #  environment:
+  #    - PGADMIN_DEFAULT_EMAIL=admin
+  #    - PGADMIN_DEFAULT_PASSWORD=admin
+  #  ports:
+  #    - 8080:80
+  nginx:
+    build:
+      context: ./
+      dockerfile: Dockerfile.nginx
+    ports:
+      - 80:80
+  nodejs:
+    build:
+      context: ./
+      dockerfile: Dockerfile.nodejs
