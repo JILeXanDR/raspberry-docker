@@ -6,10 +6,11 @@
     <title>Raspberry sensors dashboard</title>
 </head>
 <body>
-<div class="wrapper">
-    <h1>Touch button state: <span id="touch_button_state"></span></h1>
-    <h1>Echo locator distance: <span id="echo_locator_distance"></span></h1>
+<div id="app" class="wrapper">
+    <h1>Touch button state: <span>{{ touchButtonState }}</span></h1>
+    <h1>Echo locator distance: <span>{{ echoLocatorDistance }}</span></h1>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.js"></script>
 <script src="/app.js" defer></script>
 </body>

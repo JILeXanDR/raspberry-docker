@@ -33,7 +33,6 @@ func (sensor *HCSR04) MeasureDistanceSm() float32 {
 	sensor.pingPin.Low()
 
 	// wait until strobe back
-
 	for strobeZero = 0; strobeZero < HardStop && sensor.echoPin.Read() != rpio.High; strobeZero++ {
 	}
 	start := time.Now()

@@ -6,6 +6,12 @@ import (
 	"log"
 )
 
+const (
+	sensorButtonPin        = 16
+	echoLocatorPinReceiver = 23
+	echoLocatorPinSender   = 24
+)
+
 func setUpGPIO() func() {
 	if err := rpio.Open(); err != nil {
 		log.Fatal("cant open gpio: ", err)
@@ -19,7 +25,7 @@ func setUpGPIO() func() {
 			true:  "on",
 		}
 		lastState := false
-		sensor := NewTTP223B(16)
+		sensor := NewTTP223B(sensorButtonPin)
 		sensor.Loop(func(state bool) {
 			if state != lastState {
 				println(state)
@@ -31,7 +37,7 @@ func setUpGPIO() func() {
 
 	go func() {
 		log.Printf("read echo locator state...")
-		sensor, err := NewHCSR04(23, 24)
+		sensor, err := NewHCSR04(echoLocatorPinReceiver, echoLocatorPinSender)
 		if err != nil {
 			panic(err.Error())
 		}
