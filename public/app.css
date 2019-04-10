@@ -1,0 +1,10 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto");
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    background-image: linear-gradient(#fdfbfb, #ebedee);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

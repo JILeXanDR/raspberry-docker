@@ -1,25 +1,19 @@
 version: "3"
 services:
   golang:
+    privileged: true
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
       - 8000:80
-  #pgadmin:
-  #  image: dpage/pgadmin4:latest
-  #  environment:
-  #    - PGADMIN_DEFAULT_EMAIL=admin
-  #    - PGADMIN_DEFAULT_PASSWORD=admin
-  #  ports:
-  #    - 8080:80
+    volumes:
+      - ./:/go/src/app
   nginx:
     build:
       context: ./
       dockerfile: Dockerfile.nginx
     ports:
       - 80:80
-  nodejs:
-    build:
-      context: ./
-      dockerfile: Dockerfile.nodejs
+    volumes:
+      - ./public:/usr/share/nginx/html
